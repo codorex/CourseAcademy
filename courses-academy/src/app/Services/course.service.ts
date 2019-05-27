@@ -11,4 +11,8 @@ export default class CourseService {
     getAllAsync() : Observable<Course[]>{
        return this.httpClient.get<Course[]>(`${environment.baseApiUri}/courses`);
     }
+
+    createCourseAsync(course: Course) : Observable<Course>{
+        return this.httpClient.post<Course>(`${environment.baseApiUri}/courses`, course);
+    }
 }

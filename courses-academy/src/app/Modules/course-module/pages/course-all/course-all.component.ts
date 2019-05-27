@@ -14,7 +14,24 @@ export class CourseAllComponent implements OnInit {
   courses: Course[];
 
   ngOnInit() {
+    this.requestAllCoursesAsync();
+  }
+
+  onCreateCourseRequested(args: Course){
+    this.courseService.createCourseAsync(args)
+    .subscribe(response => {
+      this.courses.push(response);
+    });
+  }
+
+  requestAllCoursesAsync(callback?){
     this.courseService.getAllAsync()
-      .subscribe(courses => this.courses = courses);
+    .subscribe(courses => {
+      this.courses = courses;
+
+      if(callback){
+        callback(courses);
+      }
+    });
   }
 }

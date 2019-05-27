@@ -1,16 +1,28 @@
 {
   "Courses": [
     {
-      "Id": 1,
+      "id": 1,
       "Title": "Angular Course",
       "Description": "Test",
       "Rating": 2
     },
     {
-      "Id": 2,
+      "id": 2,
       "Title": "Django Course",
       "Description": "Test",
       "Rating": 4
+    },
+    {
+      "Title": "Test",
+      "Description": "test",
+      "Rating": 5,
+      "id": 3
+    },
+    {
+      "Title": "Test",
+      "Description": "test",
+      "Rating": 5,
+      "id": 4
     }
   ]
 }
