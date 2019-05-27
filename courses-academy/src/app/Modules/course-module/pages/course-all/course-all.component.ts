@@ -11,7 +11,7 @@ export class CourseAllComponent implements OnInit {
 
   constructor(private courseService : CourseService) { }
 
-  private courses: Course[] = []
+  courses: Course[];
 
   ngOnInit() {
     this.courseService.getAllAsync()
