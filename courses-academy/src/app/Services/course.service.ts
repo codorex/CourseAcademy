@@ -15,4 +15,9 @@ export default class CourseService {
     createCourseAsync(course: Course) : Observable<Course>{
         return this.httpClient.post<Course>(`${environment.baseApiUri}/courses`, course);
     }
+
+    removeCourseAsync(id: number) : Observable<any>{
+        console.log(id)
+        return this.httpClient.delete(`${environment.baseApiUri}/courses/${id}`);
+    }
 }

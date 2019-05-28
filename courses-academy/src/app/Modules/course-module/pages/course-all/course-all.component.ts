@@ -1,48 +1,55 @@
 import { Course } from './../../../../Models/CourseModels/course.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import CourseService from '../../../../Services/course.service';
-import { MessagingService } from '../../../../Services/messaging.service';
+import { MessagingService, Listener } from '../../../../Services/messaging.service';
 
 @Component({
-  selector: 'app-course-all',
-  templateUrl: './course-all.component.html',
-  styleUrls: ['./course-all.component.css']
+	selector: 'app-course-all',
+	templateUrl: './course-all.component.html',
+	styleUrls: ['./course-all.component.css']
 })
-export class CourseAllComponent implements OnInit {
+export class CourseAllComponent implements OnInit, OnDestroy {
 
-  constructor(
-    private courseService : CourseService, 
-    private messagingService: MessagingService) { }
+    courseAddingListener: Listener;
+	courseRemovingListener: Listener;
 
-  courses: Course[];
+	courses: Course[];
 
-  ngOnInit() {
-    this.messagingService.listen('course_added', 
-    { listener: this, callback: (course: Course) => {
-      this.courseService.createCourseAsync(course)
-      .subscribe(_ => this.courses.push(course));
-    }})
+	constructor(
+		private courseService: CourseService,
+		private messagingService: MessagingService) {
 
-    this.messagingService.listen('course_removing', 
-    { listener: this, callback: (id: number) => {
-      console.log(`remove requested for ${id}}`);
-    }})
+		this.courseAddingListener = {
+			listener: this,
+			callback: (course: Course) => {
+				this.courseService.createCourseAsync(course)
+					.subscribe(_ => this.courses.push(course));
+			}
+		};
 
-    this.requestAllCoursesAsync();
-  }
+		this.courseRemovingListener = {
+			listener: this,
+			callback: async (id: number) => {
+                this.courseService.removeCourseAsync(id)
+                .subscribe(_ => this.requestAllCoursesAsync());
+			}
+		};
+	}
 
-  onCourseRemoving(id: number){
-    console.log(id);
-  }
+	ngOnInit() {
+		this.messagingService.listen('course_adding', this.courseAddingListener)
+		this.messagingService.listen('course_removing', this.courseRemovingListener)
 
-  requestAllCoursesAsync(callback?){
-    this.courseService.getAllAsync()
-    .subscribe(courses => {
-      this.courses = courses;
+		this.requestAllCoursesAsync();
+	}
 
-      if(callback){
-        callback(courses);
-      }
-    });
-  }
+	requestAllCoursesAsync() {
+		this.courseService.getAllAsync()
+			.subscribe(courses => this.courses = courses);
+	}
+
+	ngOnDestroy() {
+		this.messagingService.unsubscribe("course_adding", this.courseAddingListener);
+		this.messagingService.unsubscribe("course_removing", this.courseRemovingListener);
+	}
 }

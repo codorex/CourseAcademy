@@ -12,18 +12,6 @@ export class CourseListComponent implements OnInit {
 
   @Input() courses : Course[];
 
-  @Output() createCourseRequested: EventEmitter<Course> = new EventEmitter<Course>();
-
-  @Output() courseRemoving : EventEmitter<number> = new EventEmitter();
-
   ngOnInit() { }
-
-  onCreateCourseClicked(args : Course){
-    this.createCourseRequested.emit(args);
-  }
-
-  onCourseRemoving(id : number){
-    this.courseRemoving.emit(id);
-  }
 
 }

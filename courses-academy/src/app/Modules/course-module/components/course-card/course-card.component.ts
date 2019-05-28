@@ -3,25 +3,21 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MessagingService } from '../../../../Services/messaging.service';
 
 @Component({
-  selector: 'app-course-card',
-  templateUrl: './course-card.component.html',
-  styleUrls: ['./course-card.component.css']
+	selector: 'app-course-card',
+	templateUrl: './course-card.component.html',
+	styleUrls: ['./course-card.component.css']
 })
 export class CourseCardComponent implements OnInit {
 
-  constructor(private messagingService: MessagingService) { }
+	constructor(private messagingService: MessagingService) { }
 
-  @Input() course : Course;
+	@Input() course: Course;
 
-  @Output() courseRemoving : EventEmitter<number> = new EventEmitter();
+	ngOnInit() {
+	}
 
-  ngOnInit() {
-  }
-
-  handleCourseRemoving(){
-    this.messagingService.send('course_removing', this.course);
-
-    this.courseRemoving.emit(this.course.id);
-  }
+	handleCourseRemoving() {
+		this.messagingService.send('course_removing', this.course.id);
+	}
 
 }

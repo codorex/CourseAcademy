@@ -22,6 +22,17 @@ export class MessagingService{
         this._dispatchMessage(event, args);
     }
 
+    unsubscribe(event: string, listener: Listener){
+        let messageListeners = this._messageMap[event];
+
+        if(messageListeners){
+            let toRemove = messageListeners.find(l => l.listener === listener.listener);
+            if(toRemove){
+                messageListeners.splice(messageListeners.indexOf(toRemove), 1);
+            }
+        }
+    }
+
     private _addMessageListener(event: string, listener: Listener): void {
         let messageListeners = this._messageMap[event];
         

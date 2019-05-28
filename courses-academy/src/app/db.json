@@ -11,54 +11,6 @@
       "Title": "Django Course",
       "Description": "Test",
       "Rating": 4
-    },
-    {
-      "Title": "Test",
-      "Description": "test",
-      "Rating": 5,
-      "id": 3
-    },
-    {
-      "Title": "Test",
-      "Description": "test",
-      "Rating": 5,
-      "id": 4
-    },
-    {
-      "Title": "Test",
-      "Description": "test",
-      "Rating": 5,
-      "id": 5
-    },
-    {
-      "Title": "Test",
-      "Description": "test",
-      "Rating": 5,
-      "id": 6
-    },
-    {
-      "Title": "Test",
-      "Description": "test",
-      "Rating": 5,
-      "id": 7
-    },
-    {
-      "Title": "Test",
-      "Description": "test",
-      "Rating": 5,
-      "id": 8
-    },
-    {
-      "Title": "Test",
-      "Description": "test",
-      "Rating": 5,
-      "id": 9
-    },
-    {
-      "Title": "Test",
-      "Description": "test",
-      "Rating": 5,
-      "id": 10
     }
   ]
 }
