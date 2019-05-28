@@ -1,0 +1,16 @@
+{
+  "Courses": [
+    {
+      "Id": 1,
+      "Title": "Angular Course",
+      "Description": "Test",
+      "Rating": 2
+    },
+    {
+      "Id": 2,
+      "Title": "Django Course",
+      "Description": "Test",
+      "Rating": 4
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+<div class="course-card">
+	<button *ngIf="!showForm" class="button button-add-course" (click)="handleCreateCourse()">+</button>
+	<div *ngIf="showForm">
+        <label for="title">Title: </label>
+        <input id="title "type="text" [(ngModel)]="courseModel.Title" />
+
+        <label for="description">Description: </label>
+        <input type="text" id="description" [(ngModel)]="courseModel.Description" />
+        <button class="button button-save-course" (click)="handleSaveCourse()">Save</button>
+        <button (click)="handleHideCreateCourseForm()">Back</button>
+	</div>
+</div>
