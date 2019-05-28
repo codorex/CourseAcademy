@@ -5,3 +5,10 @@
     height: 200px;
     float: left;
 }
+
+.course-card .hide-description{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100px;
+    overflow: hidden;
+}

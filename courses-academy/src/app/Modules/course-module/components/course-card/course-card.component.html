@@ -1,6 +1,7 @@
 <div class="course-card">
   <h3>{{ course.Title }}</h3>
-  <p>{{ course.Description }}</p>
+  <p class="hide-description">{{ course.Description }}</p>
   <p>{{ course.Rating }}</p>
   <button>Join</button>
+  <button (click)="handleCourseRemoving()">Remove</button>
 </div>

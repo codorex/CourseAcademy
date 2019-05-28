@@ -1,4 +1,4 @@
 <p>
   course-all works!
-  <app-course-list (createCourseRequested)="onCreateCourseRequested($event)" [courses]="courses"></app-course-list>
+  <app-course-list (courseRemoving)="onCourseRemoving($event)" (createCourseRequested)="onCreateCourseRequested($event)" [courses]="courses"></app-course-list>
 </p>

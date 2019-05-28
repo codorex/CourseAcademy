@@ -14,12 +14,16 @@ export class CourseListComponent implements OnInit {
 
   @Output() createCourseRequested: EventEmitter<Course> = new EventEmitter<Course>();
 
-  ngOnInit() {
-   
-  }
+  @Output() courseRemoving : EventEmitter<number> = new EventEmitter();
+
+  ngOnInit() { }
 
   onCreateCourseClicked(args : Course){
     this.createCourseRequested.emit(args);
+  }
+
+  onCourseRemoving(id : number){
+    this.courseRemoving.emit(id);
   }
 
 }
