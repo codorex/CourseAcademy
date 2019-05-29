@@ -21,10 +21,20 @@ export class UserRegisterComponent implements OnInit {
 
     ngOnInit() { }
 
-    handleJoin(){
-        this.authService.registerUserAsync(this.model)
-            .then((user: User) => {
-                location.reload();
-            });
+    handleJoin() {
+        if (this._isModelValid(this.model)) {
+            this.authService.registerUserAsync(this.model)
+                .then((user: User) => {
+                    location.reload();
+                });
+        }
+    }
+
+    private _isModelValid(model: RegisterModel): boolean {
+        if (!model.Email) return false;
+        if (!model.Password) return false;
+        if (!model.FirstName || !model.LastName) return false;
+
+        return true;
     }
 }
