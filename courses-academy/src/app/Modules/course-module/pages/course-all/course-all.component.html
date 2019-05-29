@@ -1,4 +1,12 @@
-<p>
-  course-all works!
-  <app-course-list [courses]="courses"></app-course-list>
-</p>
+
+
+<div *ngIf="!isAuthenticated">
+        <app-course-list [courses]="allCourses"></app-course-list>
+</div>
+<div *ngIf="isAuthenticated">
+    <app-course-list [courses]="notJoinedCourses"></app-course-list>
+    <div class="joined-courses">
+        <h2>My courses:</h2>
+        <app-course-list [courses]="joinedCourses"></app-course-list>
+    </div>
+</div>

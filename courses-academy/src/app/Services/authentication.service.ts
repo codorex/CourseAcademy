@@ -55,7 +55,9 @@ export class AuthenticationService{
                 reject(invalidCredsMessage);
             } else {
                 this._storeUserInStorage(user);
+                
                 resolve();
+
                 location.reload();
             }
         });
