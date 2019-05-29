@@ -3,6 +3,7 @@ import { UserService } from './user.service';
 import { CredentialsModel } from '../Models/UserModels/credentials.model';
 import User from '../Models/UserModels/user.model';
 import { Role } from '../Enums/role.enum';
+import { RegisterModel } from '../Models/UserModels/register.model';
 
 @Injectable()
 export class AuthenticationService{
@@ -10,19 +11,19 @@ export class AuthenticationService{
 
     userStorageKey: string = 'user_token';
 
-    registerUserAsync(credentials: CredentialsModel): Promise<User>{
+    registerUserAsync(model: RegisterModel): Promise<User>{
         return new Promise<User>( async (resolve, reject) => {
             const exists: boolean = await this.userService
-                .findByEmailAsync(credentials.Email) !== undefined;
+                .findByEmailAsync(model.Email) !== undefined;
 
             if(exists === true){
                 reject('User already exists');
             } else {
                 let user: User = {
                     id: 0,
-                    Name: credentials.Email,
-                    Email: credentials.Email,
-                    Password: credentials.Password,
+                    Name: `${model.FirstName} ${model.LastName}`,
+                    Email: model.Email,
+                    Password: model.Password,
                     IsBlocked: false,
                     Role: Role.User 
                 };
@@ -55,6 +56,7 @@ export class AuthenticationService{
             } else {
                 this._storeUserInStorage(user);
                 resolve();
+                location.reload();
             }
         });
     }

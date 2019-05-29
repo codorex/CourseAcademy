@@ -10,6 +10,9 @@ import CourseService from './Services/course.service';
 import { MessagingService } from './Services/messaging.service';
 import { AuthenticationService } from './Services/authentication.service';
 import { UserService } from './Services/user.service';
+import { AdminCanActivate } from './_guards/admin.guard';
+import { AuthenticatedCanActivate } from './_guards/authenticated.guard';
+import { UnauthenticatedCanActivate } from './_guards/unauthenticated.guard';
 
 @NgModule({
     declarations: [
@@ -25,7 +28,10 @@ import { UserService } from './Services/user.service';
         CourseService,
         MessagingService,
         UserService,
-        AuthenticationService
+        AuthenticationService,
+        AdminCanActivate,
+        AuthenticatedCanActivate,
+        UnauthenticatedCanActivate
     ],
     bootstrap: [AppComponent]
 })

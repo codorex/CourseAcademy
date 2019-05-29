@@ -11,22 +11,29 @@
       "Title": "Django Course",
       "Description": "Test",
       "Rating": 4
+    },
+    {
+      "id": 3,
+      "Title": "Python Basics",
+      "Description": "you will whatever",
+      "Rating": 0,
+      "Participants": []
     }
   ],
   "Users": [
     {
       "id": 1,
-      "Name": "Lorem Ipsum",
-      "Email": "lorem@ipsum.com",
-      "Password": "loremlorem",
-      "Role": "0",
-      "IsBlocked": "false"
+      "Name": "Momchil Momchilov",
+      "Email": "codorex.m@gmail.com",
+      "Password": "momi",
+      "IsBlocked": false,
+      "Role": 2
     },
     {
       "id": 2,
-      "Name": "momi@momi.com",
-      "Email": "momi@momi.com",
-      "Password": "",
+      "Name": "Iliq Mitvichin",
+      "Email": "mitvichin@gmail.com",
+      "Password": "filiq",
       "IsBlocked": false,
       "Role": 0
     }

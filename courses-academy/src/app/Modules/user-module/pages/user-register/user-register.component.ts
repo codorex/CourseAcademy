@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../../../Services/authentication.service';
-import { CredentialsModel } from '../../../../Models/UserModels/credentials.model';
 import User from '../../../../Models/UserModels/user.model';
+import { RegisterModel } from '../../../../Models/UserModels/register.model';
 
 @Component({
     selector: 'app-user-register',
@@ -10,7 +10,9 @@ import User from '../../../../Models/UserModels/user.model';
 })
 export class UserRegisterComponent implements OnInit {
 
-    credentials: CredentialsModel = {
+    model: RegisterModel = {
+        FirstName: '',
+        LastName: '',
         Email: '',
         Password: ''
     };
@@ -20,7 +22,7 @@ export class UserRegisterComponent implements OnInit {
     ngOnInit() { }
 
     handleJoin(){
-        this.authService.registerUserAsync(this.credentials)
+        this.authService.registerUserAsync(this.model)
             .then((user: User) => {
                 location.reload();
             });
