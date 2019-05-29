@@ -3,5 +3,5 @@
   <p class="hide-description">{{ course.Description }}</p>
   <p>{{ course.Rating }}</p>
   <button>Join</button>
-  <button (click)="handleCourseRemoving()">Remove</button>
+  <button *ngIf="isAdmin" (click)="handleCourseRemoving()">Remove</button>
 </div>

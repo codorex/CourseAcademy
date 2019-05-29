@@ -12,5 +12,23 @@
       "Description": "Test",
       "Rating": 4
     }
+  ],
+  "Users": [
+    {
+      "id": 1,
+      "Name": "Lorem Ipsum",
+      "Email": "lorem@ipsum.com",
+      "Password": "loremlorem",
+      "Role": "0",
+      "IsBlocked": "false"
+    },
+    {
+      "id": 2,
+      "Name": "momi@momi.com",
+      "Email": "momi@momi.com",
+      "Password": "",
+      "IsBlocked": false,
+      "Role": 0
+    }
   ]
 }

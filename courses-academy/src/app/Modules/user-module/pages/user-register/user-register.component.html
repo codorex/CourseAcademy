@@ -1,0 +1,16 @@
+<div class="register-container">
+    <div class="form-container">
+        <div class="email-container">
+            <input class="input input-email" type="email" [(ngModel)]="credentials.Email"/>
+        </div>
+        <div class="password-container">
+            <input class="input input-password" type="password" [(ngModel)]="credentials.Password" />
+        </div>
+        <div class="button-join-container">
+            <button class="button button-join" type="button" (click)="handleJoin()">Join</button>
+        </div>
+        <div class="existing-account-container">
+            <a routerLink="/users/login">Already a member? Great, jump right in!</a>
+        </div>
+    </div>
+</div>
