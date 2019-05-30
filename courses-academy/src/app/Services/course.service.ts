@@ -2,6 +2,7 @@ import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Course } from '../Models/CourseModels/course.model';
 import { Injectable } from '@angular/core';
+import { UserRating } from '../Models/CourseModels/user-rating';
 
 @Injectable()
 export default class CourseService {
@@ -75,6 +76,69 @@ export default class CourseService {
                 reject();
             }
         });
+    }
+
+    rateCourseAsync(courseId: number, userId: number, rating: number): Promise<any>{
+        return new Promise<any>(async (resolve, reject) => {
+            let course: Course = await this.getByIdAsync(courseId);
+            if(!course || this.userHasRated(course, userId)){
+                reject();
+                return;
+            }
+
+            course.UserRatings.push({
+                UserId: userId,
+                Rating: rating
+            });
+
+            await this.updateCourseAsync(course);
+
+            resolve();
+        });
+    }
+
+    userHasRated(course: Course, userId: number): boolean{
+        return course.UserRatings && course.UserRatings.some((r: UserRating) => r.UserId === userId);
+    }
+
+    getUserRatingAsync(courseId: number, userId: number): Promise<UserRating>{
+        return new Promise<UserRating>(async (resolve, reject) => {
+            const defaultValue: UserRating = { UserId: userId, Rating: 0 };
+
+            let course = await this.getByIdAsync(courseId);
+
+            if(!course || !this.userHasRated(course, userId)){
+                resolve(defaultValue);
+            }
+
+            let rating: UserRating = course.UserRatings.find(r => r.UserId === userId);
+            return rating || resolve(defaultValue);
+        });
+    }
+
+    getTotalRatingAsync(courseId: number): Promise<number>{
+        return new Promise(async (resolve, reject) => {
+            let course = await this.getByIdAsync(courseId);
+            if(!course){
+                reject();
+                return 0;
+            }
+
+            let totalRating = 0;
+            course.UserRatings.map(r => totalRating += r.Rating);
+
+            return totalRating;
+        });
+    }
+
+    getUserRating(course: Course, userId: number): UserRating {
+        const defaultValue: UserRating = { UserId: userId, Rating: 0 };
+        
+        if(!this.userHasRated(course, userId)){
+            return defaultValue;
+        }
+
+        return course.UserRatings.find(r => r.UserId === userId) || defaultValue;
     }
 
     private _getCoursesForUserAsync(userId: number, hasJoined: boolean){

@@ -4,23 +4,41 @@
       "id": 2,
       "Title": "Django Course",
       "Description": "Test",
-      "Rating": 4,
-      "Participants": []
+      "UserRatings": [
+        {
+          "UserId": 1,
+          "Rating": 4
+        }
+      ],
+      "Participants": [
+        1
+      ]
     },
     {
       "id": 3,
       "Title": "Python Basics",
       "Description": "you will whatever",
-      "Rating": 0,
+      "UserRatings": [
+        {
+          "UserId": 1,
+          "Rating": 3
+        }
+      ],
       "Participants": []
     },
     {
       "id": 4,
       "Title": "asen ",
       "Description": "egei",
-      "Rating": 0,
+      "UserRatings": [
+        {
+          "UserId": 1,
+          "Rating": 1
+        }
+      ],
       "Participants": [
-        2
+        2,
+        1
       ]
     },
     {
@@ -28,6 +46,12 @@
       "Title": "dsadas",
       "Description": "dasdasdas",
       "Rating": 0,
+      "UserRatings": [
+        {
+          "UserId": 1,
+          "Rating": 3
+        }
+      ],
       "Participants": [
         2
       ]

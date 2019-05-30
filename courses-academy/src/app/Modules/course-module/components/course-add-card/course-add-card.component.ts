@@ -29,8 +29,8 @@ export class CourseAddCardComponent implements OnInit {
             id: 0,
             Title: this.courseModel.Title,
             Description: this.courseModel.Description,
-            Rating: 0,
-            Participants: []
+            Participants: [],
+            UserRatings: []
         };
 
         this.messagingService.send('course_adding', course);

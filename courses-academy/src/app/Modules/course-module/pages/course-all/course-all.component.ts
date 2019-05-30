@@ -5,6 +5,7 @@ import { MessagingService, Listener } from '../../../../Services/messaging.servi
 import { JoiningCourseMessage } from '../../../../Models/Messages/joining-course.message';
 import { AuthenticationService } from '../../../../Services/authentication.service';
 import { LeavingCourseMessage } from '../../../../Models/Messages/leaving-course.message';
+import { RatingCourse } from '../../../../Models/Messages/rating-course.message';
 
 @Component({
     selector: 'app-course-all',
@@ -19,6 +20,7 @@ export class CourseAllComponent implements OnInit, OnDestroy {
     courseRemovingListener: Listener;
     courseJoiningListener: Listener;
     courseLeavingListener: Listener;
+    courseRatingListener: Listener;
 
     allCourses: Course[];
     joinedCourses: Course[];
@@ -36,6 +38,7 @@ export class CourseAllComponent implements OnInit, OnDestroy {
         this._registerCourseRemovingListener();
         this._registerCourseJoiningListener();
         this._registerCourseLeavingListener();
+        this._registerCourseRatingListener();
 
         this.requestAllCoursesAsync();
     }
@@ -62,6 +65,7 @@ export class CourseAllComponent implements OnInit, OnDestroy {
         this.messagingService.unsubscribe("course_removing", this.courseRemovingListener);
         this.messagingService.unsubscribe("course_joining", this.courseJoiningListener);
         this.messagingService.unsubscribe("course_leaving", this.courseLeavingListener);
+        this.messagingService.unsubscribe("course_rating", this.courseRatingListener);
     }
 
     private _registerCourseAddingListener() {
@@ -119,5 +123,22 @@ export class CourseAllComponent implements OnInit, OnDestroy {
         };
 
         this.messagingService.listen('course_leaving', this.courseLeavingListener);
+    }
+
+    private _registerCourseRatingListener() {
+        this.courseRatingListener = {
+            listener: this,
+            callback: async (message: RatingCourse) => {
+                await this.courseService.rateCourseAsync(
+                    message.CourseId,
+                    message.UserId,
+                    message.Rating
+                );
+
+                this.requestAllCoursesAsync();
+            }
+        };
+
+        this.messagingService.listen('course_rating', this.courseRatingListener);
     }
 }

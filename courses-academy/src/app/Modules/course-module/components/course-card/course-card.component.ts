@@ -5,6 +5,8 @@ import { AuthenticationService } from '../../../../Services/authentication.servi
 import { Role } from '../../../../Enums/role.enum';
 import { JoiningCourseMessage } from '../../../../Models/Messages/joining-course.message';
 import { LeavingCourseMessage } from '../../../../Models/Messages/leaving-course.message';
+import CourseService from '../../../../Services/course.service';
+import { RatingCourse } from '../../../../Models/Messages/rating-course.message';
 
 @Component({
     selector: 'app-course-card',
@@ -15,16 +17,21 @@ export class CourseCardComponent implements OnInit {
 
     isAuthenticated: boolean = false;
     isAdmin: boolean = false;
+    rating: number = 0;
 
     constructor(
         private messagingService: MessagingService,
-        private authService: AuthenticationService) { }
+        private authService: AuthenticationService,
+        private courseService: CourseService
+    ) { }
 
     @Input() course: Course;
 
     ngOnInit() {
         this.isAdmin = this.authService.isInRole(Role.Admin);
         this.isAuthenticated = this.authService.isAuthenticated();
+        this.rating = this.courseService
+            .getUserRating(this.course, this.authService.getCurrentUser().id).Rating;
     }
 
     handleCourseRemoving() {
@@ -49,11 +56,27 @@ export class CourseCardComponent implements OnInit {
         this.messagingService.send('course_leaving', message);
     }
 
+    handleRating(rating: number){
+        if(this._shouldAllowRating()){
+            let message: RatingCourse = {
+                CourseId: this.course.id,
+                UserId: this.authService.getCurrentUser().id,
+                Rating: rating
+            };
+
+            this.messagingService.send('course_rating', message);
+        }
+    }
+
     private _shouldDisplayJoin(): boolean{
         return this.isAuthenticated && !this._userHasJoined();
     }
 
     private _shouldDisplayLeave(): boolean{
+        return this.isAuthenticated && this._userHasJoined();
+    }
+
+    private _shouldAllowRating(): boolean{
         return this.isAuthenticated && this._userHasJoined();
     }
 
