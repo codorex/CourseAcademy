@@ -51,7 +51,7 @@ export class AuthenticationService{
 
             let user = await this.userService.findByEmailAsync(credentials.Email);
 
-            if(!user || user.Password !== credentials.Password){
+            if(!user || user.Password !== credentials.Password || user.IsBlocked){
                 reject(invalidCredsMessage);
             } else {
                 this._storeUserInStorage(user);

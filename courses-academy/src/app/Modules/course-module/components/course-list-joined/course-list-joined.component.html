@@ -1,3 +1,5 @@
-<p>
-  course-list-joined works!
-</p>
+<ul>
+    <li *ngFor="let course of courses">
+      <app-course-card [course]="course"></app-course-card>
+    </li>
+  </ul>

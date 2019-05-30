@@ -39,6 +39,44 @@ export default class CourseService {
        return this._getCoursesForUserAsync(userId, false);
     }
 
+    removeCourseAsync(id: number) : Promise<any>{
+        return this.httpClient
+        .delete(`${environment.baseApiUri}/courses/${id}`)
+        .toPromise();
+    }
+
+    addParticipantAsync(courseId: number, userId: number): Promise<any>{
+        return new Promise(async (resolve, reject) => {
+            let course = await this.getByIdAsync(courseId);
+            if(course && !course.Participants.some(id => id === userId)){
+                course.Participants.push(userId);
+                await this.updateCourseAsync(course);
+
+                resolve();
+            } else {
+                reject();
+            }
+        });
+    }
+
+    removeParticipantAsync(courseId: number, userId: number): Promise<any>{
+        return new Promise(async (resolve, reject) => {
+            let course = await this.getByIdAsync(courseId);
+            if(course && course.Participants.some(id => id === userId)){
+                let indexToRemove = course.Participants
+                    .indexOf(userId);
+
+                course.Participants.splice(indexToRemove, 1);
+
+                await this.updateCourseAsync(course);
+
+                resolve();
+            } else {
+                reject();
+            }
+        });
+    }
+
     private _getCoursesForUserAsync(userId: number, hasJoined: boolean){
         return new Promise<Course[]>(async (resolve, reject) => {
             let allCourses: Course[] = await this.getAllAsync();
@@ -52,26 +90,6 @@ export default class CourseService {
                 });
 
                 resolve(result);
-        });
-    }
-
-    removeCourseAsync(id: number) : Promise<any>{
-        return this.httpClient
-        .delete(`${environment.baseApiUri}/courses/${id}`)
-        .toPromise();
-    }
-
-    addParticipantAsync(courseId: number, userId: number): Promise<any>{
-        return new Promise(async (resolve, reject) => {
-            let course = await this.getByIdAsync(courseId);
-            if(course){
-                course.Participants.push(userId);
-                await this.updateCourseAsync(course);
-
-                resolve();
-            } else {
-                reject();
-            }
         });
     }
 }

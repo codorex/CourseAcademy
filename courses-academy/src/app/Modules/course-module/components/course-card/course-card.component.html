@@ -2,6 +2,7 @@
   <h3>{{ course.Title }}</h3>
   <p class="hide-description">{{ course.Description }}</p>
   <p>{{ course.Rating }}</p>
-  <button *ngIf="isAuthenticated" (click)="handleJoinCourse()">Join</button>
+  <button *ngIf="_shouldDisplayJoin()" (click)="handleJoinCourse()">Join</button>
+  <button *ngIf="_shouldDisplayLeave()" (click)="handleLeaveCourse()">Leave</button>
   <button *ngIf="isAdmin" (click)="handleCourseRemoving()">Remove</button>
 </div>

@@ -4,6 +4,7 @@ import { MessagingService } from '../../../../Services/messaging.service';
 import { AuthenticationService } from '../../../../Services/authentication.service';
 import { Role } from '../../../../Enums/role.enum';
 import { JoiningCourseMessage } from '../../../../Models/Messages/joining-course.message';
+import { LeavingCourseMessage } from '../../../../Models/Messages/leaving-course.message';
 
 @Component({
     selector: 'app-course-card',
@@ -37,6 +38,33 @@ export class CourseCardComponent implements OnInit {
         };
 
         this.messagingService.send('course_joining', message);
+    }
+
+    handleLeaveCourse(){
+        let message: LeavingCourseMessage = {
+            CourseId: this.course.id,
+            UserId: this.authService.getCurrentUser().id
+        };
+
+        this.messagingService.send('course_leaving', message);
+    }
+
+    private _shouldDisplayJoin(): boolean{
+        return this.isAuthenticated && !this._userHasJoined();
+    }
+
+    private _shouldDisplayLeave(): boolean{
+        return this.isAuthenticated && this._userHasJoined();
+    }
+
+    private _userHasJoined(): boolean{
+        if(!this.authService.isAuthenticated()){
+            return false;
+        }
+
+        let user = this.authService.getCurrentUser();
+        return this.course.Participants
+            .some(participantId => participantId === user.id);
     }
 
 }

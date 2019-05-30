@@ -4,6 +4,7 @@ import CourseService from '../../../../Services/course.service';
 import { MessagingService, Listener } from '../../../../Services/messaging.service';
 import { JoiningCourseMessage } from '../../../../Models/Messages/joining-course.message';
 import { AuthenticationService } from '../../../../Services/authentication.service';
+import { LeavingCourseMessage } from '../../../../Models/Messages/leaving-course.message';
 
 @Component({
     selector: 'app-course-all',
@@ -17,6 +18,7 @@ export class CourseAllComponent implements OnInit, OnDestroy {
     courseAddingListener: Listener;
     courseRemovingListener: Listener;
     courseJoiningListener: Listener;
+    courseLeavingListener: Listener;
 
     allCourses: Course[];
     joinedCourses: Course[];
@@ -33,6 +35,7 @@ export class CourseAllComponent implements OnInit, OnDestroy {
         this._registerCourseAddingListener();
         this._registerCourseRemovingListener();
         this._registerCourseJoiningListener();
+        this._registerCourseLeavingListener();
 
         this.requestAllCoursesAsync();
     }
@@ -58,6 +61,7 @@ export class CourseAllComponent implements OnInit, OnDestroy {
         this.messagingService.unsubscribe("course_adding", this.courseAddingListener);
         this.messagingService.unsubscribe("course_removing", this.courseRemovingListener);
         this.messagingService.unsubscribe("course_joining", this.courseJoiningListener);
+        this.messagingService.unsubscribe("course_leaving", this.courseLeavingListener);
     }
 
     private _registerCourseAddingListener() {
@@ -90,7 +94,8 @@ export class CourseAllComponent implements OnInit, OnDestroy {
             callback: async (message: JoiningCourseMessage) => {
                 await this.courseService.addParticipantAsync(
                     message.CourseId,
-                    message.UserId);
+                    message.UserId
+                );
 
                 // TODO: Please, take care of this later, was too tired yesterday ♀♀♀
                 this.requestAllCoursesAsync();
@@ -98,5 +103,21 @@ export class CourseAllComponent implements OnInit, OnDestroy {
         };
 
         this.messagingService.listen('course_joining', this.courseJoiningListener);
+    }
+
+    private _registerCourseLeavingListener() {
+        this.courseLeavingListener = {
+            listener: this,
+            callback: async (message: LeavingCourseMessage) => {
+                await this.courseService.removeParticipantAsync(
+                    message.CourseId,
+                    message.UserId
+                );
+
+                this.requestAllCoursesAsync();
+            }
+        };
+
+        this.messagingService.listen('course_leaving', this.courseLeavingListener);
     }
 }

@@ -1,28 +1,35 @@
 {
   "Courses": [
     {
-      "id": 1,
-      "Title": "Angular Course",
-      "Description": "Test",
-      "Rating": 2,
-      "Participants": []
-    },
-    {
       "id": 2,
       "Title": "Django Course",
       "Description": "Test",
       "Rating": 4,
-      "Participants": [
-        1
-      ]
+      "Participants": []
     },
     {
       "id": 3,
       "Title": "Python Basics",
       "Description": "you will whatever",
       "Rating": 0,
+      "Participants": []
+    },
+    {
+      "id": 4,
+      "Title": "asen ",
+      "Description": "egei",
+      "Rating": 0,
       "Participants": [
-        1
+        2
+      ]
+    },
+    {
+      "id": 7,
+      "Title": "dsadas",
+      "Description": "dasdasdas",
+      "Rating": 0,
+      "Participants": [
+        2
       ]
     }
   ],
@@ -40,14 +47,6 @@
       "Name": "Iliq Mitvichin",
       "Email": "mitvichin@gmail.com",
       "Password": "filiq",
-      "IsBlocked": false,
-      "Role": 0
-    },
-    {
-      "id": 3,
-      "Name": " ",
-      "Email": "",
-      "Password": "",
       "IsBlocked": false,
       "Role": 0
     }
