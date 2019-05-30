@@ -30,8 +30,11 @@ export class CourseCardComponent implements OnInit {
     ngOnInit() {
         this.isAdmin = this.authService.isInRole(Role.Admin);
         this.isAuthenticated = this.authService.isAuthenticated();
-        this.rating = this.courseService
-            .getUserRating(this.course, this.authService.getCurrentUser().id).Rating;
+
+        if(this.isAuthenticated){
+            this.rating = this.courseService
+                .getUserRating(this.course, this.authService.getCurrentUser().id).Rating;
+        }
     }
 
     handleCourseRemoving() {
