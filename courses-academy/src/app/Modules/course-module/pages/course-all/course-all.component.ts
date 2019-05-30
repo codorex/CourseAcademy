@@ -2,10 +2,10 @@ import { Course } from './../../../../Models/CourseModels/course.model';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import CourseService from '../../../../Services/course.service';
 import { MessagingService, Listener } from '../../../../Services/messaging.service';
-import { JoiningCourseMessage } from '../../../../Models/Messages/joining-course.message';
+import { JoiningCourseMessage } from '../../../../Models/Messages/course-messages/joining-course.message';
 import { AuthenticationService } from '../../../../Services/authentication.service';
-import { LeavingCourseMessage } from '../../../../Models/Messages/leaving-course.message';
-import { RatingCourse } from '../../../../Models/Messages/rating-course.message';
+import { LeavingCourseMessage } from '../../../../Models/Messages/course-messages/leaving-course.message';
+import { RatingCourse } from '../../../../Models/Messages/course-messages/rating-course.message';
 
 @Component({
     selector: 'app-course-all',

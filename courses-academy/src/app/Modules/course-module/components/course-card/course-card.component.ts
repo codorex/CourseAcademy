@@ -3,10 +3,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MessagingService } from '../../../../Services/messaging.service';
 import { AuthenticationService } from '../../../../Services/authentication.service';
 import { Role } from '../../../../Enums/role.enum';
-import { JoiningCourseMessage } from '../../../../Models/Messages/joining-course.message';
-import { LeavingCourseMessage } from '../../../../Models/Messages/leaving-course.message';
+import { JoiningCourseMessage } from '../../../../Models/Messages/course-messages/joining-course.message';
+import { LeavingCourseMessage } from '../../../../Models/Messages/course-messages/leaving-course.message';
 import CourseService from '../../../../Services/course.service';
-import { RatingCourse } from '../../../../Models/Messages/rating-course.message';
+import { RatingCourse } from '../../../../Models/Messages/course-messages/rating-course.message';
 
 @Component({
     selector: 'app-course-card',

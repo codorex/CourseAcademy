@@ -8,6 +8,10 @@
         {
           "UserId": 1,
           "Rating": 4
+        },
+        {
+          "UserId": 3,
+          "Rating": 2
         }
       ],
       "Participants": [
@@ -22,45 +26,13 @@
         {
           "UserId": 1,
           "Rating": 3
+        },
+        {
+          "UserId": 3,
+          "Rating": 4
         }
       ],
       "Participants": [
-        1
-      ]
-    },
-    {
-      "id": 4,
-      "Title": "asen ",
-      "Description": "egei",
-      "UserRatings": [
-        {
-          "UserId": 1,
-          "Rating": 1
-        },
-        {
-          "UserId": 2,
-          "Rating": 3
-        }
-      ],
-      "Participants": []
-    },
-    {
-      "id": 7,
-      "Title": "dsadas",
-      "Description": "dasdasdas",
-      "Rating": 0,
-      "UserRatings": [
-        {
-          "UserId": 1,
-          "Rating": 3
-        },
-        {
-          "UserId": 2,
-          "Rating": 5
-        }
-      ],
-      "Participants": [
-        2,
         1
       ]
     }
@@ -81,6 +53,14 @@
       "Password": "filiq",
       "IsBlocked": false,
       "Role": 0
+    },
+    {
+      "id": 3,
+      "Name": "momi momchilov",
+      "Email": "momi@momi.com",
+      "Password": "momi",
+      "IsBlocked": false,
+      "Role": 2
     }
   ]
 }

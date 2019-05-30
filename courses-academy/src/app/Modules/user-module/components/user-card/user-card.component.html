@@ -1,3 +1,6 @@
-<p>
-  user-card works!
-</p>
+<div class="card">
+    <h3>{{ user.Email }}</h3>
+    <p>{{ user.Name }}</p>
+    <button *ngIf="!user.IsBlocked" (click)="handleBlockUser()">Block</button>
+    <button *ngIf="user.IsBlocked" (click)="handleUnblockUser()">Unblock</button>
+</div>
