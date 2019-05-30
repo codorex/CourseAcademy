@@ -1,0 +1,19 @@
+<div class="login-container">
+    <div class="form-container">
+        <div class="email-container">
+            <input class="input input-email" type="email" [(ngModel)]="credentials.Email" />
+        </div>
+        <div class="password-container">
+            <input class="input input-password" type="password" [(ngModel)]="credentials.Password" />
+        </div>
+        <div class="error-container">
+            <span>{{ errorState }}</span>
+        </div>
+        <div class="button-loing-container">
+            <button class="button button-sign-in" type="button" (click)="handleSignIn()">Sign In</button>
+        </div>
+        <div class="no-account-container">
+            <a routerLink="/users/join">Not a member? Let's get you going!</a>
+        </div>
+    </div>
+</div>

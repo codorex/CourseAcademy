@@ -1,20 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { UserRoutingModule } from './user-routing.module';
+
 import { UserAllComponent } from './pages/user-all/user-all.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
-
-import { UserRoutingModule } from './user-routing.module';
+import { UserRegisterComponent } from './pages/user-register/user-register.component';
+import { UserLoginComponent } from './pages/user-login/user-login.component';
 
 @NgModule({
     declarations: [
         UserAllComponent, 
         UserListComponent, 
-        UserCardComponent
+        UserCardComponent, 
+        UserRegisterComponent, 
+        UserLoginComponent
     ],
     imports: [
         UserRoutingModule,
-        CommonModule
+        CommonModule,
+        FormsModule,
+        HttpClientModule
     ],
     exports: []
 })

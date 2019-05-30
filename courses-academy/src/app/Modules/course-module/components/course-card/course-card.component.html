@@ -1,7 +1,16 @@
 <div class="course-card">
   <h3>{{ course.Title }}</h3>
   <p class="hide-description">{{ course.Description }}</p>
-  <p>{{ course.Rating }}</p>
-  <button>Join</button>
-  <button (click)="handleCourseRemoving()">Remove</button>
+  <button *ngIf="_shouldDisplayJoin()" (click)="handleJoinCourse()">Join</button>
+  <button *ngIf="_shouldDisplayLeave()" (click)="handleLeaveCourse()">Leave</button>
+  <button *ngIf="isAdmin" (click)="handleCourseRemoving()">Remove</button>
+  <div *ngIf="_shouldAllowRating()" class="rating-container">
+    <div class="rating" [ngClass]="{noPointerEvents: rating > 0}">
+        <span [ngClass]="{rated: rating === 5}" (click)="handleRating(5)">♡</span>
+        <span [ngClass]="{rated: rating >= 4}" (click)="handleRating(4)">♡</span>
+        <span [ngClass]="{rated: rating >= 3}" (click)="handleRating(3)">♡</span>
+        <span [ngClass]="{rated: rating >= 2}" (click)="handleRating(2)">♡</span>
+        <span [ngClass]="{rated: rating >= 1}" (click)="handleRating(1)">♡</span>
+    </div>
+  </div>
 </div>

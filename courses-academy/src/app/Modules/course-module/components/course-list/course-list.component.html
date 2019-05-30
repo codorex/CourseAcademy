@@ -3,6 +3,6 @@
     <app-course-card [course]="course"></app-course-card>
   </li>
   <li>
-    <app-course-add-card></app-course-add-card>
+    <app-course-add-card *ngIf="isAdmin"></app-course-add-card>
   </li>
 </ul>

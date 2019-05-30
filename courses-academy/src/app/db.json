@@ -1,16 +1,86 @@
 {
   "Courses": [
     {
-      "id": 1,
-      "Title": "Angular Course",
-      "Description": "Test",
-      "Rating": 2
-    },
-    {
       "id": 2,
       "Title": "Django Course",
       "Description": "Test",
-      "Rating": 4
+      "UserRatings": [
+        {
+          "UserId": 1,
+          "Rating": 4
+        }
+      ],
+      "Participants": [
+        2
+      ]
+    },
+    {
+      "id": 3,
+      "Title": "Python Basics",
+      "Description": "you will whatever",
+      "UserRatings": [
+        {
+          "UserId": 1,
+          "Rating": 3
+        }
+      ],
+      "Participants": [
+        1
+      ]
+    },
+    {
+      "id": 4,
+      "Title": "asen ",
+      "Description": "egei",
+      "UserRatings": [
+        {
+          "UserId": 1,
+          "Rating": 1
+        },
+        {
+          "UserId": 2,
+          "Rating": 3
+        }
+      ],
+      "Participants": []
+    },
+    {
+      "id": 7,
+      "Title": "dsadas",
+      "Description": "dasdasdas",
+      "Rating": 0,
+      "UserRatings": [
+        {
+          "UserId": 1,
+          "Rating": 3
+        },
+        {
+          "UserId": 2,
+          "Rating": 5
+        }
+      ],
+      "Participants": [
+        2,
+        1
+      ]
+    }
+  ],
+  "Users": [
+    {
+      "id": 1,
+      "Name": "Momchil Momchilov",
+      "Email": "codorex.m@gmail.com",
+      "Password": "momi",
+      "IsBlocked": false,
+      "Role": 2
+    },
+    {
+      "id": 2,
+      "Name": "Iliq Mitvichin",
+      "Email": "mitvichin@gmail.com",
+      "Password": "filiq",
+      "IsBlocked": false,
+      "Role": 0
     }
   ]
 }
