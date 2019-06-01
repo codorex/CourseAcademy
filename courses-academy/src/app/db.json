@@ -34,7 +34,8 @@
         }
       ],
       "Participants": [
-        1
+        1,
+        3
       ]
     },
     {
@@ -64,8 +65,15 @@
       "id": 6,
       "Title": "Python",
       "Description": "A great course to get you started on one of the worlds monst famouse langs!",
-      "Participants": [],
-      "UserRatings": []
+      "Participants": [
+        4
+      ],
+      "UserRatings": [
+        {
+          "UserId": 3,
+          "Rating": 4
+        }
+      ]
     }
   ],
   "Users": [
@@ -92,6 +100,14 @@
       "Password": "momi",
       "IsBlocked": false,
       "Role": 2
+    },
+    {
+      "id": 4,
+      "Name": "asen rusev",
+      "Email": "asen@email.com",
+      "Password": "asen",
+      "IsBlocked": false,
+      "Role": 0
     }
   ]
 }

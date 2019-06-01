@@ -31,7 +31,7 @@
                 </div>
             </div>
         </div>
-        <div class="footer-badge badge-button" style="float: right">
+        <div *ngIf="isAuthenticated" class="footer-badge badge-button" style="float: right">
             <span class="badge-text" *ngIf="_shouldDisplayJoin()" (click)="handleJoinCourse()">Join</span>
             <span class="badge-text" *ngIf="_shouldDisplayLeave()" (click)="handleLeaveCourse()">Leave</span>
         </div>

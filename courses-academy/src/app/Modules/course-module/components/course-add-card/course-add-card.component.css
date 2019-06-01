@@ -1,9 +1,5 @@
 .card{
-    background-color: #a5c5ff;
-    margin: 5px 10px;
-    padding: 10px 30px;
-    height: 200px;
-    width: 200px;
+    background: linear-gradient(to bottom right, #DBA0FE, #96F0EE);
     float: left;
 }
 
@@ -18,4 +14,15 @@
     height: 60px;
     border: none;
     font-size: 20px;
+    color: white;
+    transition: .2s ease;
+    cursor: pointer;
+    box-shadow: 0px 5px 20px 0px #bb99d6;
+    background: linear-gradient(to top left, rgb(170, 99, 211), rgb(67, 189, 187));
+}
+
+.button-add-course:hover{
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(to top left, rgb(173, 108, 211), rgb(91, 212, 210));
 }

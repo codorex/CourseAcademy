@@ -1,6 +1,14 @@
 <div class="card">
-    <h3>{{ user.Email }}</h3>
-    <p>{{ user.Name }}</p>
-    <button *ngIf="!user.IsBlocked" (click)="handleBlockUser()">Block</button>
-    <button *ngIf="user.IsBlocked" (click)="handleUnblockUser()">Unblock</button>
-</div>
+        <div class="card-header">
+            <div class="header-text">{{ user.Name }}</div>
+        </div>
+        <div class="card-body">
+            <span>{{ user.Email }}</span>
+        </div>
+        <div class="card-footer">
+            <div class="footer-badge badge-button" style="float: right">
+                <span class="badge-text" *ngIf="user.IsBlocked" (click)="handleUnblockUser()">Unblock</span>
+                <span class="badge-text" *ngIf="!user.IsBlocked" (click)="handleBlockUser()">Block</span>
+            </div>
+        </div>
+    </div>
