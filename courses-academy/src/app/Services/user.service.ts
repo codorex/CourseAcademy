@@ -6,7 +6,8 @@ import { environment } from '../../environments/environment';
 
 @Injectable()
 export class UserService{
-    constructor(private httpClient: HttpClient) { }
+    constructor(
+        private httpClient: HttpClient) { }
 
     private usersEndpoint: string = 'users';
 
@@ -16,10 +17,15 @@ export class UserService{
             .toPromise();
     }
 
-    getAllUsersAsync(): Promise<User[]>{
-        return this.httpClient
-            .get<User[]>(`${environment.baseApiUri}/${this.usersEndpoint}`)
-            .toPromise();
+    getAllUsersAsync(includeBlocked?: boolean): Promise<User[]>{
+        return new Promise<User[]>(async (resolve, reject) => {
+            let users: User[] = await this.httpClient
+                .get<User[]>(`${environment.baseApiUri}/${this.usersEndpoint}`)
+                .toPromise();
+
+            users = includeBlocked ? users : users.filter(u => u.IsBlocked === false);
+            resolve(users);
+        });
     }
 
     createUserAsync(user: User): Promise<User>{
@@ -33,6 +39,42 @@ export class UserService{
             let allUsers = await this.getAllUsersAsync();
             let result = allUsers.find(u => u.Email === email);
             resolve(result);
-        })
+        });
+    }
+
+    blockUserAsync(userId: number): Promise<User>{
+        return new Promise<User>(async (resolve, reject) => {
+            let user = await this.getUserAsync(userId);
+            if(!user){
+                reject();
+                return;
+            }
+
+            user.IsBlocked = true;
+
+            await this.httpClient
+                .put<User>(`${environment.baseApiUri}/${this.usersEndpoint}/${userId}`, user)
+                .toPromise();
+            
+            resolve();
+        });
+    }
+
+    unblockUserAsync(userId: number): Promise<User>{
+        return new Promise<User>(async (resolve, reject) => {
+            let user = await this.getUserAsync(userId);
+            if(!user){
+                reject();
+                return;
+            }
+            
+            user.IsBlocked = false;
+
+            await this.httpClient
+                .put<User>(`${environment.baseApiUri}/${this.usersEndpoint}/${userId}`, user)
+                .toPromise();
+            
+            resolve();
+        });
     }
 }

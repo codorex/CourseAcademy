@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
+body{
+    padding: 0;
+    margin: 0;
+}
+
 ul{
     list-style: none;
     padding: 0px;
@@ -12,21 +17,207 @@ ul{
 
 .navigation-sidebar{
     float: left;
-    position: absolute;
+    position: fixed;
     left: 0px;
     top: 0px;
+    bottom: 0px;
     height: 100%;
     width: 250px;
-    background-color: red;
     display: block;
+    background: linear-gradient(to top left, #e8c1ff, #6184d4) no-repeat;
+    box-shadow: gray 5px 0px 10px -10px;
+}
+
+.navigation-sidebar ul{
+    width: 100%;
+}
+
+.navigation-sidebar .link{
+    display: block;
+    height: 40px;
+    width: inherit;
+    text-align: left;
+    padding: 0px 0px 0px 30px;
+    cursor: pointer;
+}
+
+.link .link-text{
+    line-height: 40px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    transition: .2s ease;
+} 
+
+.navigation-sidebar .link:hover {
+    background-color: rgba(164, 162, 233, .3);
+}
+
+.navigation-sidebar .link:hover .link-text{
+    padding-left: 30px;
+    color: #c6d2ff;
 }
 
 .main-content{
     float: left;
-    position: relative;
+    position: fixed;
+    overflow: auto;
     left: 250px;
     top: 0px;
+    right: -250px;
     display: block;
     height: 100%;
     margin-right: 250px;
+    background: linear-gradient(to bottom right, #6586d5, #f7eaff);
+    padding: 0px 0px 0px 20px;
 }
+
+/* CARD START */
+
+.card {
+    float: left;
+    margin: 5px 10px;
+    padding: 10px 20px;
+    height: 250px;
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px -10px #bb99d6;
+    /* background: linear-gradient(to top left, rgb(255, 250, 250), #e6f0ff) */
+    background: linear-gradient(to bottom right, #DBA0FE, #ffdad6);
+}
+
+.card .card-header {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    display: block;
+    color:white;
+}
+
+.card .card-header .header-text{
+    line-height: 50px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.card .card-header * {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.card .card-body {
+    /* background: linear-gradient(to bottom right, #DBA0FE, #96F0EE); */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px -10px #bb99d6;
+    display: block;
+    position: relative;
+    height: 110px;
+    padding: 20px 10px;
+    color: #358090;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.card .card-footer{
+    display: block;
+    position: relative;
+    margin: 5px 0px;
+    width: 100%;
+    height: 40px;
+}
+
+.card-footer .footer-badge {
+    display: block;
+    width: 50%;
+    height: 30px;
+    border-radius: 60px;
+    position: relative;
+    top: 10px;
+    color:#7a5d92;
+    float: left;
+    margin: 0px 10px 0px 10px;
+    cursor: default;
+}
+
+.footer-badge .badge-text{
+    position: absolute;
+    font-size: 12px;
+    line-height: 30px;
+    font-family: 'Helvetica', sans-serif;
+    text-align: center;
+    width: 100%;
+    transition: .3s ease;
+}
+
+.footer-badge.badge-button{
+    cursor: pointer;
+    transition: .2s ease;
+    box-shadow: 0px 5px 10px -5px #bb99d6;
+    color: white;
+    width: 30%;
+    background: linear-gradient(to bottom right, #e8c1ff, #31c5c2);
+}
+
+.badge-button .badge-text{
+    font-size: 14px;
+}
+
+.footer-badge.badge-button:hover{
+    transform: scale(1.1);
+    box-shadow: 0px 5px 20px -10px #bb99d6;
+}
+
+.footer-badge.badge-button:hover .badge-text{
+    font-size: 15px;
+    color: white;
+}
+
+
+.card .hide-description{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100px;
+    overflow: hidden;
+}
+
+/* CARD END */
+
+.rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    padding: 10px 10px;
+    position: relative;
+}
+
+.rating > span{
+    font-size: 12px;
+    margin: 0px 2px 0px 2px;
+    transition: .2s ease;
+    cursor: pointer;
+    float: right;
+    top: -10px;
+    left: -10px;
+    position: relative;
+}
+
+.rating .material-icons{
+    font-size: 17px;
+    color: #d2d2d2;
+    text-shadow: 0px 3px rgb(212, 212, 212);
+}
+
+.rating > span:hover,
+.rating > span:hover ~ span{
+    color: rgb(218, 23, 23) !important;
+    transform: scale(1.4);
+ }
+.rated{
+    color: rgb(197, 0, 0);
+    font-size: 28px;
+ }
+
+ .noPointerEvents{
+     pointer-events: none;
+ }
+
+ .material-icons{
+     color: inherit !important;
+ }

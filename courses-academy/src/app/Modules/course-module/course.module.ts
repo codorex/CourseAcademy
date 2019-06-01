@@ -8,13 +8,14 @@ import { CourseListComponent } from './components/course-list/course-list.compon
 import { CourseCardComponent } from './components/course-card/course-card.component';
 import { CourseAddCardComponent } from './components/course-add-card/course-add-card.component';
 import { CourseListJoinedComponent } from './components/course-list-joined/course-list-joined.component';
+import { IconComponent } from './shared/icon/icon.component';
 
 @NgModule({
     declarations: [
         CourseAllComponent, 
         CourseListComponent, 
         CourseCardComponent, 
-        CourseAddCardComponent, CourseListJoinedComponent
+        CourseAddCardComponent, CourseListJoinedComponent, IconComponent
     ],
     imports: [
         CourseRoutingModule, 

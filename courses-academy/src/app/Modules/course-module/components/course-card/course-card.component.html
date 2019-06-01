@@ -1,16 +1,39 @@
-<div class="course-card">
-  <h3>{{ course.Title }}</h3>
-  <p class="hide-description">{{ course.Description }}</p>
-  <button *ngIf="_shouldDisplayJoin()" (click)="handleJoinCourse()">Join</button>
-  <button *ngIf="_shouldDisplayLeave()" (click)="handleLeaveCourse()">Leave</button>
-  <button *ngIf="isAdmin" (click)="handleCourseRemoving()">Remove</button>
-  <div *ngIf="_shouldAllowRating()" class="rating-container">
-    <div class="rating" [ngClass]="{noPointerEvents: rating > 0}">
-        <span [ngClass]="{rated: rating === 5}" (click)="handleRating(5)">♡</span>
-        <span [ngClass]="{rated: rating >= 4}" (click)="handleRating(4)">♡</span>
-        <span [ngClass]="{rated: rating >= 3}" (click)="handleRating(3)">♡</span>
-        <span [ngClass]="{rated: rating >= 2}" (click)="handleRating(2)">♡</span>
-        <span [ngClass]="{rated: rating >= 1}" (click)="handleRating(1)">♡</span>
+
+<div class="card">
+    <div class="card-header">
+        <div class="header-text">{{ course.Title }}</div>
     </div>
-  </div>
+    <div class="card-body">
+        <span>{{ course.Description }}</span>
+    </div>
+    <div class="card-footer">
+        <div class="footer-badge" style="float: left">
+            <div class="badge-text">
+                <span *ngIf="!_shouldAllowRating()">{{ course.Participants.length }} others like this</span>
+                <div *ngIf="_shouldAllowRating()" class="rating-container">
+                    <div class="rating" [ngClass]="{noPointerEvents: rating > 0}">
+                        <span [ngClass]="{rated: rating === 5}" (click)="handleRating(5)">
+                            <app-icon [icon]="'favorite'"></app-icon>
+                        </span>
+                        <span [ngClass]="{rated: rating >= 4}" (click)="handleRating(4)">
+                            <app-icon [icon]="'favorite'"></app-icon>
+                        </span>
+                        <span [ngClass]="{rated: rating >= 3}" (click)="handleRating(3)">
+                            <app-icon [icon]="'favorite'"></app-icon>
+                        </span>
+                        <span [ngClass]="{rated: rating >= 2}" (click)="handleRating(2)">
+                            <app-icon [icon]="'favorite'"></app-icon>
+                        </span>
+                        <span [ngClass]="{rated: rating >= 1}" (click)="handleRating(1)">
+                            <app-icon [icon]="'favorite'"></app-icon>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="isAuthenticated" class="footer-badge badge-button" style="float: right">
+            <span class="badge-text" *ngIf="_shouldDisplayJoin()" (click)="handleJoinCourse()">Join</span>
+            <span class="badge-text" *ngIf="_shouldDisplayLeave()" (click)="handleLeaveCourse()">Leave</span>
+        </div>
+    </div>
 </div>

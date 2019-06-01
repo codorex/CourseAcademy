@@ -1,3 +1,7 @@
-<p>
-  user-list works!
-</p>
+<div>
+    <ul>
+        <li *ngFor="let user of users">
+            <app-user-card [user]="user"></app-user-card>
+        </li>
+    </ul>
+</div>

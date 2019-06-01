@@ -8,10 +8,15 @@
         {
           "UserId": 1,
           "Rating": 4
+        },
+        {
+          "UserId": 3,
+          "Rating": 2
         }
       ],
       "Participants": [
-        2
+        2,
+        3
       ]
     },
     {
@@ -22,46 +27,52 @@
         {
           "UserId": 1,
           "Rating": 3
+        },
+        {
+          "UserId": 3,
+          "Rating": 4
         }
       ],
       "Participants": [
-        1
+        1,
+        3
       ]
     },
     {
       "id": 4,
-      "Title": "asen ",
-      "Description": "egei",
+      "Title": "test",
+      "Description": "asdasdasdasdasdas",
+      "Participants": [
+        3
+      ],
       "UserRatings": [
         {
-          "UserId": 1,
-          "Rating": 1
-        },
-        {
-          "UserId": 2,
-          "Rating": 3
+          "UserId": 3,
+          "Rating": 4
         }
-      ],
-      "Participants": []
+      ]
     },
     {
-      "id": 7,
-      "Title": "dsadas",
+      "id": 5,
+      "Title": "unrated ",
       "Description": "dasdasdas",
-      "Rating": 0,
+      "Participants": [
+        3
+      ],
+      "UserRatings": []
+    },
+    {
+      "id": 6,
+      "Title": "Python",
+      "Description": "A great course to get you started on one of the worlds monst famouse langs!",
+      "Participants": [
+        4
+      ],
       "UserRatings": [
         {
-          "UserId": 1,
-          "Rating": 3
-        },
-        {
-          "UserId": 2,
-          "Rating": 5
+          "UserId": 3,
+          "Rating": 4
         }
-      ],
-      "Participants": [
-        2,
-        1
       ]
     }
   ],
@@ -79,6 +90,22 @@
       "Name": "Iliq Mitvichin",
       "Email": "mitvichin@gmail.com",
       "Password": "filiq",
+      "IsBlocked": false,
+      "Role": 0
+    },
+    {
+      "id": 3,
+      "Name": "momi momchilov",
+      "Email": "momi@momi.com",
+      "Password": "momi",
+      "IsBlocked": false,
+      "Role": 2
+    },
+    {
+      "id": 4,
+      "Name": "asen rusev",
+      "Email": "asen@email.com",
+      "Password": "asen",
       "IsBlocked": false,
       "Role": 0
     }

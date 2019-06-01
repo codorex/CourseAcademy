@@ -1,19 +1,19 @@
 <div class="app-wrapper">
     <aside class="navigation-sidebar">
         <ul>
-            <li>
-                <a routerLink='courses'>Courses</a>
+            <li class="link" routerLink='courses'>
+                <span class="link-text">Courses</span>
             </li>
-            <li *ngIf="isAdmin">
-                <a routerLink='users'>Users</a>
+            <li class="link" *ngIf="isAdmin" routerLink='users'>
+                <span class="link-text">Users</span>
             </li>
-            <li *ngIf="!isAuthenticated">
-                <a routerLink='users/join'>Join</a>
+            <li class="link" *ngIf="!isAuthenticated" routerLink='users/join'>
+                <span class="link-text">Join</span>
+            </li>
+            <li class="link" *ngIf="isAuthenticated" (click)="handleLogout()">
+                <span class="link-text">Sign Out</span>
             </li>
         </ul>
-        <button *ngIf="isAuthenticated" (click)="handleLogout()">
-            Sign out
-        </button>
     </aside>
     <div class="main-content">
         <router-outlet></router-outlet>
