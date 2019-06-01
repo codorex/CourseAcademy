@@ -15,7 +15,8 @@
         }
       ],
       "Participants": [
-        2
+        2,
+        3
       ]
     },
     {
@@ -35,6 +36,36 @@
       "Participants": [
         1
       ]
+    },
+    {
+      "id": 4,
+      "Title": "test",
+      "Description": "asdasdasdasdasdas",
+      "Participants": [
+        3
+      ],
+      "UserRatings": [
+        {
+          "UserId": 3,
+          "Rating": 4
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "Title": "unrated ",
+      "Description": "dasdasdas",
+      "Participants": [
+        3
+      ],
+      "UserRatings": []
+    },
+    {
+      "id": 6,
+      "Title": "Python",
+      "Description": "A great course to get you started on one of the worlds monst famouse langs!",
+      "Participants": [],
+      "UserRatings": []
     }
   ],
   "Users": [

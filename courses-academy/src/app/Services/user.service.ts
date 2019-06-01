@@ -39,7 +39,7 @@ export class UserService{
             let allUsers = await this.getAllUsersAsync();
             let result = allUsers.find(u => u.Email === email);
             resolve(result);
-        })
+        });
     }
 
     blockUserAsync(userId: number): Promise<User>{
