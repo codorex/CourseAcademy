@@ -1,3 +1,4 @@
+import { IconComponent } from './shared/icon/icon.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -9,14 +10,14 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { UserRegisterComponent } from './pages/user-register/user-register.component';
 import { UserLoginComponent } from './pages/user-login/user-login.component';
-
 @NgModule({
     declarations: [
         UserAllComponent, 
         UserListComponent, 
         UserCardComponent, 
         UserRegisterComponent, 
-        UserLoginComponent
+        UserLoginComponent,
+        IconComponent
     ],
     imports: [
         UserRoutingModule,
