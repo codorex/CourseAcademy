@@ -1,7 +1,11 @@
-
 <div class="card">
     <div class="card-header">
         <div class="header-text">{{ course.Title }}</div>
+        <div class="header-button footer-badge badge-button" *ngIf="isAdmin" (click)="handleCourseRemoving()">
+            <span class="badge-text">
+                <app-icon [icon]="'close'"></app-icon>
+            </span>
+        </div>
     </div>
     <div class="card-body">
         <span>{{ course.Description }}</span>

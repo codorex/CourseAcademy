@@ -103,6 +103,16 @@ ul{
     font-weight: 400;
 }
 
+.card-header .header-button{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 30px !important;
+    height: 30px;
+    display: block;
+    border-radius: 60px;
+}
+
 .card .card-body {
     /* background: linear-gradient(to bottom right, #DBA0FE, #96F0EE); */
     background-color: white;
@@ -124,17 +134,20 @@ ul{
     height: 40px;
 }
 
-.card-footer .footer-badge {
+.footer-badge {
     display: block;
     width: 50%;
     height: 30px;
     border-radius: 60px;
     position: relative;
-    top: 10px;
     color:#7a5d92;
-    float: left;
     margin: 0px 10px 0px 10px;
     cursor: default;
+}
+
+.card-footer .footer-badge{
+    top: 10px;
+    float: left;
 }
 
 .footer-badge .badge-text{
@@ -145,6 +158,11 @@ ul{
     text-align: center;
     width: 100%;
     transition: .3s ease;
+}
+
+.badge-text .material-icons{
+    position: relative;
+    top: 3px;
 }
 
 .footer-badge.badge-button{
@@ -220,4 +238,34 @@ ul{
 
  .material-icons{
      color: inherit !important;
+ }
+
+ /* forms START */
+
+.form-group{
+    padding: 10px 20px;
+    display: block;
+}
+
+.form-container{
+    width: 40%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+ .input{
+    border-radius: 4px;
+    width: 100%;
+    min-height: 30px;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid rgb(221, 215, 255);
+    margin: 5px 0px;
+}
+
+ /* forms END */
+
+ .text-right{
+     text-align: right;
  }

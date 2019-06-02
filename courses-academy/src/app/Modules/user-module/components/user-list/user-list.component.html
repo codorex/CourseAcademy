@@ -3,5 +3,8 @@
         <li *ngFor="let user of users">
             <app-user-card [user]="user"></app-user-card>
         </li>
+        <li *ngIf="users.length === 0" class="mock-user">
+            <app-user-card [user]="mockUser"></app-user-card>
+        </li>
     </ul>
 </div>

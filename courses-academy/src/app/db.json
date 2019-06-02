@@ -1,113 +1,35 @@
 {
   "Courses": [
     {
-      "id": 2,
+      "id": 1,
       "Title": "Django Course",
       "Description": "Test",
-      "UserRatings": [
-        {
-          "UserId": 1,
-          "Rating": 4
-        },
-        {
-          "UserId": 3,
-          "Rating": 2
-        }
-      ],
-      "Participants": [
-        2,
-        3
-      ]
+      "UserRatings": [],
+      "Participants": []
+    },
+    {
+      "id": 2,
+      "Title": "Python Basics",
+      "Description": "you will whatever",
+      "UserRatings": [],
+      "Participants": []
     },
     {
       "id": 3,
-      "Title": "Python Basics",
-      "Description": "you will whatever",
-      "UserRatings": [
-        {
-          "UserId": 1,
-          "Rating": 3
-        },
-        {
-          "UserId": 3,
-          "Rating": 4
-        }
-      ],
-      "Participants": [
-        1,
-        3
-      ]
-    },
-    {
-      "id": 4,
-      "Title": "test",
-      "Description": "asdasdasdasdasdas",
-      "Participants": [
-        3
-      ],
-      "UserRatings": [
-        {
-          "UserId": 3,
-          "Rating": 4
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "Title": "unrated ",
-      "Description": "dasdasdas",
-      "Participants": [
-        3
-      ],
-      "UserRatings": []
-    },
-    {
-      "id": 6,
       "Title": "Python",
       "Description": "A great course to get you started on one of the worlds monst famouse langs!",
-      "Participants": [
-        4
-      ],
-      "UserRatings": [
-        {
-          "UserId": 3,
-          "Rating": 4
-        }
-      ]
+      "Participants": [],
+      "UserRatings": []
     }
   ],
   "Users": [
     {
       "id": 1,
-      "Name": "Momchil Momchilov",
-      "Email": "codorex.m@gmail.com",
-      "Password": "momi",
+      "Name": "Admin Adminov",
+      "Email": "admin@admin.com",
+      "Password": "admin",
       "IsBlocked": false,
       "Role": 2
-    },
-    {
-      "id": 2,
-      "Name": "Iliq Mitvichin",
-      "Email": "mitvichin@gmail.com",
-      "Password": "filiq",
-      "IsBlocked": false,
-      "Role": 0
-    },
-    {
-      "id": 3,
-      "Name": "momi momchilov",
-      "Email": "momi@momi.com",
-      "Password": "momi",
-      "IsBlocked": false,
-      "Role": 2
-    },
-    {
-      "id": 4,
-      "Name": "asen rusev",
-      "Email": "asen@email.com",
-      "Password": "asen",
-      "IsBlocked": false,
-      "Role": 0
-    }
+    }    
   ]
 }
