@@ -103,6 +103,16 @@ ul{
     font-weight: 400;
 }
 
+.card-header .header-button{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 30px !important;
+    height: 30px;
+    display: block;
+    border-radius: 60px;
+}
+
 .card .card-body {
     /* background: linear-gradient(to bottom right, #DBA0FE, #96F0EE); */
     background-color: white;
@@ -145,6 +155,11 @@ ul{
     text-align: center;
     width: 100%;
     transition: .3s ease;
+}
+
+.badge-text .material-icons{
+    position: relative;
+    top: 3px;
 }
 
 .footer-badge.badge-button{
