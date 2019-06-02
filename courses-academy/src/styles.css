@@ -237,11 +237,13 @@ ul{
 }
 
  .input{
+    border-radius: 4px;
     width: 100%;
     min-height: 30px;
-    padding: 3px 5px;
     border: none;
-    border-bottom: 1px solid white;
- }
+    background-color: transparent;
+    border-bottom: 1px solid rgb(221, 215, 255);
+    margin: 5px 0px;
+}
 
  /* forms END */

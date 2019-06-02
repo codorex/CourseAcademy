@@ -26,3 +26,22 @@
     height: 70px;
     background: linear-gradient(to top left, rgb(173, 108, 211), rgb(91, 212, 210));
 }
+
+.form-container{
+    width: 100%;
+}
+
+.form-group{
+    padding: 0px;
+}
+
+.input{
+    transition: .2s ease;
+    font-family: 'Montserrat', sans-serif;
+    opacity: 1;
+}
+
+.input:not(:focus){
+   min-height: 1px;
+   opacity: .6;
+}
