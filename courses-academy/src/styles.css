@@ -134,17 +134,21 @@ ul{
     height: 40px;
 }
 
-.card-footer .footer-badge {
+.footer-badge {
     display: block;
     width: 50%;
     height: 30px;
     border-radius: 60px;
     position: relative;
-    top: 10px;
+    
     color:#7a5d92;
-    float: left;
     margin: 0px 10px 0px 10px;
     cursor: default;
+}
+
+.card-footer .footer-badge{
+    top: 10px;
+    float: left;
 }
 
 .footer-badge .badge-text{
