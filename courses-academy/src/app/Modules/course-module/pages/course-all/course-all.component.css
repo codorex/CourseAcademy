@@ -1,0 +1,14 @@
+.courses-divider{
+    display: block;
+    width: 100%;
+    background-color: white;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background:linear-gradient(to bottom right, #e8c1ff, #bcd0ff);
+}
+
+.courses-divider > *{
+    padding: 15px 10px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}

@@ -1,12 +1,12 @@
-
-
 <div *ngIf="!isAuthenticated">
-        <app-course-list [courses]="allCourses"></app-course-list>
+    <app-course-list [courses]="allCourses"></app-course-list>
 </div>
 <div *ngIf="isAuthenticated">
     <app-course-list [courses]="notJoinedCourses"></app-course-list>
     <div class="joined-courses">
-        <h2>My courses:</h2>
+        <div class="courses-divider">
+            <h3>Courses you have joined: </h3>
+        </div>
         <app-course-list-joined [courses]="joinedCourses"></app-course-list-joined>
     </div>
 </div>
