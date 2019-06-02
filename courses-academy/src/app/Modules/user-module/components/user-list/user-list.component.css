@@ -1,3 +1,9 @@
 li{
     display: inline-block;
 }
+
+.mock-user{
+    filter: opacity(.6);
+    pointer-events: none;
+    cursor: no-drop;
+}

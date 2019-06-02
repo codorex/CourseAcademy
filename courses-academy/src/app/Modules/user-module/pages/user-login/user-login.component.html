@@ -1,20 +1,32 @@
 <div class="login-container">
     <div class="form-container">
-        <div class="email-container">
-            <input class="input input-email" type="email" [(ngModel)]="credentials.Email" />
+        <div class="form-group">
+            <label class="form-label" for="form-email">Email: </label>
+            <div class="email-container">
+                <input id="form-email" class="input input-email" type="email" [(ngModel)]="credentials.Email" />
+            </div>
         </div>
-        <div class="password-container">
-            <input class="input input-password" type="password" [(ngModel)]="credentials.Password" />
+        <div class="form-group">
+            <label class="form-label" for="form-password">Password: </label>
+            <div class="password-container">
+                <input id="form-password" class="input input-password" type="password"
+                    [(ngModel)]="credentials.Password" />
+            </div>
         </div>
-        <div class="error-container">
-            <span>{{ errorState }}</span>
+        <div class="form-group">
+            <div class="error-container">
+                <span>{{ errorState }}</span>
+            </div>
         </div>
-        <div class="no-account-container">
+
+        <div class="button-join-container">
+            <div class="footer-badge badge-button" (click)="handleSignIn()">
+                <span class="badge-text">Sign In</span>
+            </div>
+        </div>
+        <br>
+        <div class="no-account-container text-right">
             <a routerLink="/users/join">Not a member? Let's get you going!</a>
         </div>
     </div>
-</div>
-
-<div class="button-loing-container">
-    <button class="button button-sign-in" type="button" (click)="handleSignIn()">Sign In</button>
 </div>

@@ -1,0 +1,16 @@
+.greeting-container{
+    position: absolute;
+    bottom: 20px;
+    right: 15px;
+}
+
+.greeting-text{
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(47, 36, 148);
+    user-select: none;
+}
+
+.greeting-text .material-icons{
+    top: 5px;
+    position: relative;
+}

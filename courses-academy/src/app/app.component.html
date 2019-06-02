@@ -14,6 +14,14 @@
                 <span class="link-text">Sign Out</span>
             </li>
         </ul>
+        <div class="greeting-container" *ngIf="isAuthenticated">
+            <span class="greeting-text">
+                <i class="material-icons">
+                    account_circle
+                </i>
+                {{user.FullName}}
+            </span>
+        </div>
     </aside>
     <div class="main-content">
         <router-outlet></router-outlet>

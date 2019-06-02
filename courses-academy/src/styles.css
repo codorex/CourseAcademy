@@ -140,7 +140,6 @@ ul{
     height: 30px;
     border-radius: 60px;
     position: relative;
-    
     color:#7a5d92;
     margin: 0px 10px 0px 10px;
     cursor: default;
@@ -266,3 +265,7 @@ ul{
 }
 
  /* forms END */
+
+ .text-right{
+     text-align: right;
+ }
